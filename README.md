@@ -1,74 +1,78 @@
-# Expo Barcode Scanner Template
+# UPC Barcode Scanner
 
-A reusable template for creating barcode scanning apps using Expo and React Native.
-
-## Setup Instructions
-
-1. Create a new Expo project:
-```bash
-npx create-expo-app YourAppName
-cd YourAppName
-```
-
-2. Install required dependencies:
-```bash
-npx expo install expo-camera @react-navigation/native @react-navigation/native-stack react-native-screens react-native-safe-area-context
-```
-
-3. Copy the following files from this template:
-- `App.js`
-- `screens/ScannerScreen.js`
-- `screens/ResultScreen.js`
-
-## Important Notes
-
-### Camera Permissions
-- For iOS: Add the following to your `app.json`:
-```json
-{
-  "expo": {
-    "plugins": [
-      [
-        "expo-camera",
-        {
-          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
-        }
-      ]
-    ]
-  }
-}
-```
-
-### Common Issues & Fixes
-1. If you see "CameraType.back is undefined":
-   - Use `CameraView` instead of `Camera` component
-   - Use `useCameraPermissions` hook for permission handling
-   - Remove `CameraType` import and usage
-
-2. If camera permissions don't work:
-   - Make sure to use `useCameraPermissions` hook
-   - Check if permissions are properly configured in app.json
-   - Test on a physical device as simulators may have permission issues
-
-### Supported Barcode Types
-- QR Code
-- EAN-13
-- EAN-8
-- UPC
-
-## Usage
-1. Start the development server:
-```bash
-npx expo start
-```
-
-2. Scan the QR code with:
-- iOS: Camera app
-- Android: Expo Go app
+A React Native Expo app that allows users to scan UPC barcodes using their device's camera. This app demonstrates how to implement barcode scanning functionality in a React Native application using Expo libraries with a beautiful, modern UI.
 
 ## Features
-- Real-time barcode scanning
-- Permission handling
-- Navigation between screens
-- Clean UI with proper error states
-- Support for multiple barcode types 
+
+- Scan UPC barcodes (UPC-A, UPC-E, EAN-13, EAN-8) with a beautifully designed scanner
+- Display the scanned barcode value in a clean, modern UI
+- Flashlight/torch control for low-light scanning
+- Beautiful animations and transitions between screens
+- Clean, modern UI with intuitive design
+
+## Technologies Used
+
+- React Native
+- Expo
+- expo-camera
+- Expo Router for navigation
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (LTS version)
+- npm or yarn
+- Expo CLI
+- iOS Simulator or Android Emulator (optional)
+- Physical device with Expo Go app (for testing on a real device)
+
+### Installation
+
+1. Install dependencies
+
+   ```bash
+   npm install
+   ```
+
+2. Start the app
+
+   ```bash
+   npx expo start
+   ```
+
+3. Use the app:
+   - Scan the QR code with Expo Go app on your phone
+   - Press `i` to open in iOS simulator
+   - Press `a` to open in Android emulator
+
+## How to Use
+
+1. Launch the app and view the welcome screen
+2. Tap "Start Scanning" to open the scanner 
+3. Position a UPC barcode within the scanning frame
+4. Once the barcode is scanned, view the result on the detailed result screen
+5. Choose to scan another barcode or return to the home screen
+
+## App Structure
+
+- **Welcome Screen**: Introduction with a "Start Scanning" button
+- **Scanner Screen**: Beautiful scanner with guides and flashlight control
+- **Result Screen**: Displays the scanned barcode with options to scan another or return home
+
+## Implementation Details
+
+The app uses the `CameraView` component from `expo-camera` to implement the barcode scanning functionality. The UI has been carefully designed with modern aesthetics including:
+
+- Corner markers for the scan area
+- Flashlight/torch button
+- Beautiful transitions between screens
+- Detailed result display
+
+## Documentation References
+
+- [Expo Camera Documentation](https://docs.expo.dev/versions/latest/sdk/camera/)
+
+## License
+
+MIT
